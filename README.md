@@ -1,7 +1,7 @@
 # Exchange rate
 
-## Basic exchange rates for `UAH` currency
-- `rate.py` tool allows get exchange rate for `UAH` currency on specific date.
+## Basic exchange rates for UAH currency
+- `rate.py` tool allows to get exchange rate for `UAH` currency on particular date.
 ```
 ~ python rate.py --help
 usage: rate.py [-h] --currency CURRENCY [--date DATE]
