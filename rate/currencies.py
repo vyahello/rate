@@ -9,47 +9,6 @@ class Currency(ABC):
         pass
 
 
-class Inject(ABC):
-    """Represent abstraction for injection."""
-
-    @abstractmethod
-    def perform(self) -> Currency:
-        pass
-
-
-class CurrencyError(Exception):
-    """Represent currency error."""
-
-    pass
-
-
-class InjectCurrency(Inject):
-    """Inject concrete currency."""
-
-    def __init__(self, currency: str):
-        self._currency = currency
-
-    def perform(self) -> Currency:
-        if self._currency == 'brl':
-            return BRL()
-        elif self._currency == 'tjs':
-            return TJS()
-        elif self._currency == 'rub':
-            return RUB()
-        elif self._currency == 'byn':
-            return BYN()
-        elif self._currency == 'aud':
-            return AUD()
-        elif self._currency == 'usd':
-            return USD()
-        elif self._currency == 'eur':
-            return EUR()
-        elif self._currency == 'pln':
-            return PLN()
-        else:
-            raise CurrencyError('Invalid {} currency'.format(self._currency))
-
-
 class BRL(Currency):
     """Represent `Brazil real` currency."""
 
