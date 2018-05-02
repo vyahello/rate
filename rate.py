@@ -12,6 +12,6 @@ if __name__ == '__main__':
                          For instance `usd` represents dollar currency.""")
     parser.add_argument('--date', '-d', type=str, action='store', default=str(date.today()),
                         help='Date should be in YYYY-MM-DD format. Default is today date.')
-    args = parser.parse_args()
+    args: argparse.Namespace = parser.parse_args()
 
     ToUahExchangeRate(CurrencyInjection(args.currency), CustomDate(args.date)).value()

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from rate.connections.api import CustomApiSession
+from rate.connections.api import CustomApiSession, ApiSession
 from rate.connections.responses import Response
 from rate.connections.urls import Url
 
@@ -22,7 +22,7 @@ class GetRequest(Request):
     """Represent a GET request."""
 
     def __init__(self, url: Url) -> None:
-        self._session = CustomApiSession(url)
+        self._session: ApiSession = CustomApiSession(url)
 
     def response(self) -> Response:
         return self._session.get()
@@ -34,7 +34,7 @@ class SafeGetRequest(Request):
     """
 
     def __init__(self, url: Url, status_code: int = 200) -> None:
-        self._req = GetRequest(url)
+        self._req: Request = GetRequest(url)
         self._code = status_code
 
     def response(self) -> Response:

@@ -32,7 +32,7 @@ class CustomDate(Date):
     """Represent specific for a date."""
 
     def __init__(self, value: str) -> None:
-        self._date = SafeDate(value)
+        self._date: Date = SafeDate(value)
 
     def date(self) -> str:
         return ''.join(map(lambda i: str(i), re.split('-', self._date.date())))

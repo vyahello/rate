@@ -5,5 +5,5 @@ from rate.injections import CurrencyInjection
 @pytest.mark.parametrize("currency", [
     'brl', 'tjs', 'rub', 'byn', 'aud', 'usd', 'eur', 'pln'
 ])
-def test_param_length(currency):
+def test_param_length(currency: str) -> None:
     assert str(CurrencyInjection(currency).perform()) == currency
