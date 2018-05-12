@@ -38,5 +38,4 @@ class CurrencyInjection(Injection):
             return EUR()
         elif self._currency == 'pln':
             return PLN()
-        else:
-            raise InjectionError('Invalid {} currency'.format(self._currency))
+        raise InjectionError('Invalid {} currency'.format(self._currency))
