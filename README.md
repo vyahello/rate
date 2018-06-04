@@ -1,22 +1,8 @@
-# Exchange rate
+# UAH exchange rate
+Gets exchange rate for uah currency depending on a particular type of currency on a specific date.
 
-## Basic exchange rates for UAH currency
-- `rate.py` tool allows to get exchange rate for `UAH` currency on particular date.
-```
-~ python rate.py --help
-usage: rate.py [-h] --currency CURRENCY [--date DATE]
-
-Allow to get exchange rate of specific currency to `uah`.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --currency CURRENCY, -c CURRENCY
-                        Currency to interpret into `uah` exchange rate
-                        comparision. For instance `usd` represents dollar
-                        currency. (default: None)
-  --date DATE, -d DATE  Date should be in YYYY-MM-DD format. Default is today
-                        date. (default: 2018-04-15)
-```
+## Exchange rates for uah currency
+- `rate.py` tool allows to get exchange rate for `uah` currency on particular date.
 ## Contributing
 
 ### Setup
