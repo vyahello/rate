@@ -1,8 +1,10 @@
-from abc import ABC, abstractmethod
+from abc import ABC, ABCMeta, abstractmethod
 
 
 class Currency(ABC):
     """Represent abstraction for a specific currency."""
+
+    __metaclass__ = ABCMeta
 
     @abstractmethod
     def __str__(self) -> str:

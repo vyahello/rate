@@ -1,7 +1,7 @@
-from rate.connections.urls import HttpsUrl
+from rate.connections.urls import UnifiedUrl
 
 _url: str = 'https://path/to/data&data'
 
 
 def test_url() -> None:
-    assert HttpsUrl('path/to/', 'data&data').as_str() == _url
+    assert UnifiedUrl(_url).compose() == _url

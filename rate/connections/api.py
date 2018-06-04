@@ -8,7 +8,7 @@ from rate.connections.urls import Url
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-class ApiSession(ABC):
+class Session(ABC):
     """The abstraction of an API session."""
 
     @abstractmethod
@@ -17,7 +17,7 @@ class ApiSession(ABC):
         pass
 
 
-class CustomApiSession(ApiSession):
+class ApiSession(Session):
     """Represent standard API session."""
 
     def __init__(self, url: Url, session: requests.Session = requests.Session()) -> None:
@@ -25,4 +25,4 @@ class CustomApiSession(ApiSession):
         self._url = url
 
     def get(self) -> Response:
-        return HttpResponse(self._session.get(self._url.as_str(), verify=False))
+        return HttpResponse(self._session.get(self._url.compose(), verify=False))

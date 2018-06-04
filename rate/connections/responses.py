@@ -7,14 +7,6 @@ class Response(ABC):
     """The abstraction of a response from an api request."""
 
     @abstractmethod
-    def status_code(self) -> str:
-        pass
-
-    @abstractmethod
-    def as_str(self) -> str:
-        pass
-
-    @abstractmethod
     def as_dict(self) -> Dict[Any, Any]:
         pass
 
@@ -24,12 +16,6 @@ class HttpResponse(Response):
 
     def __init__(self, response: requests.Response) -> None:
         self._response = response
-
-    def status_code(self) -> int:
-        return self._response.status_code
-
-    def as_str(self) -> str:
-        return str(self._response.content)
 
     def as_dict(self) -> Dict[Any, Any]:
         return self._response.json()

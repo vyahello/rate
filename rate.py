@@ -2,7 +2,7 @@ import argparse
 from datetime import date
 from rate.injections import CurrencyInjection
 from rate.dates import CustomDate
-from rate.rates import ToUahExchangeRate
+from rate.rates import ToUahRate
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Allow to get exchange rate of specific currency to `uah`.',
@@ -14,4 +14,4 @@ if __name__ == '__main__':
                         help='Date should be in YYYY-MM-DD format. Default is today date.')
     args: argparse.Namespace = parser.parse_args()
 
-    ToUahExchangeRate(CurrencyInjection(args.currency), CustomDate(args.date)).value()
+    ToUahRate(CurrencyInjection(args.currency), CustomDate(args.date)).value()
