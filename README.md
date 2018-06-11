@@ -3,6 +3,25 @@ Gets exchange rate for uah currency depending on a particular type of currency o
 
 ## Exchange rates for uah currency
 - `rate.py` tool allows to get exchange rate for `uah` currency on particular date.
+
+## Demo
+```bash
+~/rate python rate.py --currency eur
+2018-06-11 12:08:24     Exchange rate for UAH/EUR is 30.720743000000006 on 11.06.2018
+~/rate python rate.py --currency pln
+2018-06-11 12:08:44     Exchange rate for UAH/PLN is 7.178918 on 11.06.2018
+~/rate python rate.py --currency usd
+2018-06-11 12:08:50     Exchange rate for UAH/USD is 26.136416 on 11.06.2018
+~/rate python rate.py --currency usd --date 2008-11-06
+2018-06-11 12:09:19     Exchange rate for UAH/USD is 5.8224 on 06.11.2008
+~/rate python rate.py --currency eur --date 2008-11-06
+2018-06-11 12:09:39     Exchange rate for UAH/EUR is 7.493429 on 06.11.2008
+~/rate python rate.py --currency pln --date 2008-11-06
+2018-06-11 12:09:44     Exchange rate for UAH/PLN is 2.130328 on 06.11.2008
+~/rate python rate.py --currency usd --date 2008-11-06
+2018-06-11 12:09:51     Exchange rate for UAH/USD is 5.8224 on 06.11.2008
+```
+
 ## Contributing
 
 ### Setup
