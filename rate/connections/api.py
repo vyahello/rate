@@ -20,9 +20,13 @@ class Session(ABC):
 class ApiSession(Session):
     """Represent standard API session."""
 
-    def __init__(self, url: Url, session: requests.Session = requests.Session()) -> None:
+    def __init__(
+        self, url: Url, session: requests.Session = requests.Session()
+    ) -> None:
         self._session = session
         self._url = url
 
     def get(self) -> Response:
-        return HttpResponse(self._session.get(self._url.compose(), verify=False))
+        return HttpResponse(
+            self._session.get(self._url.compose(), verify=False)
+        )

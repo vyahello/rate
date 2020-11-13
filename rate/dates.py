@@ -23,8 +23,10 @@ class SafeDate(Date):
         self._value = value
 
     def get(self) -> str:
-        if not re.compile('\d{4}-\d{2}-\d{2}').findall(self._value):
-            raise DateError("Incorrect date format. Date has to be in YYYY-MM-DD format.")
+        if not re.compile("\d{4}-\d{2}-\d{2}").findall(self._value):
+            raise DateError(
+                "Incorrect date format. Date has to be in YYYY-MM-DD format."
+            )
         return self._value
 
 
@@ -35,4 +37,4 @@ class CustomDate(Date):
         self._date: Date = SafeDate(value)
 
     def get(self) -> str:
-        return ''.join(map(lambda i: str(i), re.split('-', self._date.get())))
+        return "".join(map(lambda i: str(i), re.split("-", self._date.get())))

@@ -17,4 +17,4 @@ class UnifiedUrl(Url):
         self._url = url_elements
 
     def compose(self) -> str:
-        return ''.join(map(str, self._url))
+        return "".join(map(str, self._url))

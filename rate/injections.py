@@ -12,6 +12,7 @@ class Injection(ABC):
 
 class InjectionError(Exception):
     """Represent specific injection error object."""
+
     pass
 
 
@@ -22,20 +23,20 @@ class CurrencyInjection(Injection):
         self._currency = currency
 
     def perform(self) -> Currency:
-        if self._currency == 'brl':
+        if self._currency == "brl":
             return BRL()
-        elif self._currency == 'tjs':
+        elif self._currency == "tjs":
             return TJS()
-        elif self._currency == 'rub':
+        elif self._currency == "rub":
             return RUB()
-        elif self._currency == 'byn':
+        elif self._currency == "byn":
             return BYN()
-        elif self._currency == 'aud':
+        elif self._currency == "aud":
             return AUD()
-        elif self._currency == 'usd':
+        elif self._currency == "usd":
             return USD()
-        elif self._currency == 'eur':
+        elif self._currency == "eur":
             return EUR()
-        elif self._currency == 'pln':
+        elif self._currency == "pln":
             return PLN()
-        raise InjectionError('Invalid {} currency'.format(self._currency))
+        raise InjectionError("Invalid {} currency".format(self._currency))

@@ -7,7 +7,7 @@ from rate.dates import Date
 from rate.logger import logger
 
 _log: logging.Logger = logger()
-_url: str = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode={c}&date={d}&json'
+_url: str = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode={c}&date={d}&json"
 
 
 class Rate(ABC):
@@ -27,5 +27,18 @@ class ToUahRate(Rate):
         self._inj_cur = inject
 
     def value(self) -> None:
-        data = Get(UnifiedUrl(_url.format(c=self._inj_cur.perform(), d=self._date.get()))).response().as_dict()[0]
-        _log.info('Exchange rate for UAH/%s is %s on %s', data['cc'], data['rate'], data['exchangedate'])
+        data = (
+            Get(
+                UnifiedUrl(
+                    _url.format(c=self._inj_cur.perform(), d=self._date.get())
+                )
+            )
+            .response()
+            .as_dict()[0]
+        )
+        _log.info(
+            "Exchange rate for UAH/%s is %s on %s",
+            data["cc"],
+            data["rate"],
+            data["exchangedate"],
+        )
